@@ -3,6 +3,9 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(response => response.json())
         .then(data => {
             populateTable(data);
+            // Add event listener for real-time search
+            const searchInput = document.getElementById('search-input');
+            searchInput.addEventListener('input', () => searchTable());
         })
         .catch(error => console.error('Error fetching data:', error));
 });
@@ -87,23 +90,73 @@ function hideTooltip(tooltip) {
 }
 
 function searchTable() {
-    const input = document.getElementById('search-input').value.toLowerCase();
+    const input = document.getElementById('search-input').value.toLowerCase().trim();
     const tableBody = document.getElementById('table-body');
     const rows = tableBody.getElementsByTagName('tr');
+    let visibleCount = 0;
 
     for (let i = 0; i < rows.length; i++) {
         let cells = rows[i].getElementsByTagName('td');
         let rowContainsQuery = false;
-        for (let j = 0; j < cells.length; j++) {
-            if (cells[j].textContent.toLowerCase().includes(input)) {
+        
+        // Skip the Sr. No. column in search
+        for (let j = 1; j < cells.length; j++) {
+            const cellText = cells[j].textContent.toLowerCase();
+            if (cellText.includes(input)) {
                 rowContainsQuery = true;
                 break;
             }
         }
+
         if (rowContainsQuery) {
             rows[i].style.display = '';
+            visibleCount++;
         } else {
             rows[i].style.display = 'none';
         }
     }
+
+    // Show "No results found" message if needed
+    const noResultsMessage = document.getElementById('no-results-message');
+    if (!noResultsMessage) {
+        const message = document.createElement('div');
+        message.id = 'no-results-message';
+        message.className = 'no-results';
+        message.textContent = 'No results found';
+        tableBody.appendChild(message);
+    }
+
+    if (visibleCount === 0) {
+        document.getElementById('no-results-message').style.display = '';
+    } else {
+        document.getElementById('no-results-message').style.display = 'none';
+    }
+}
+
+// Function to copy referral code to clipboard
+function copyReferralCode() {
+    const referralCode = document.getElementById('referral-code-text').textContent;
+    const tooltip = document.getElementById('tooltip');
+    
+    // Copy to clipboard
+    navigator.clipboard.writeText(referralCode).then(() => {
+        // Show tooltip
+        tooltip.textContent = 'Copied to clipboard!';
+        tooltip.classList.remove('hidden');
+        tooltip.classList.add('visible');
+        
+        // Position tooltip near the copy button
+        const copyButton = document.querySelector('.copy-button');
+        const rect = copyButton.getBoundingClientRect();
+        tooltip.style.left = rect.left + 'px';
+        tooltip.style.top = (rect.top - tooltip.offsetHeight - 5) + 'px';
+        
+        // Hide tooltip after 2 seconds
+        setTimeout(() => {
+            tooltip.classList.remove('visible');
+            tooltip.classList.add('hidden');
+        }, 2000);
+    }).catch(err => {
+        console.error('Failed to copy text: ', err);
+    });
 }
