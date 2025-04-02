@@ -3,84 +3,106 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arcade facilitator 24 - Leaderboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Arcade Facilitator 24 Leaderboard - Track your progress and compete with others">
+    <title>Arcade Facilitator 24 - Leaderboard</title>
     <link rel="icon" href="logo.png" type="image/x-icon">
-
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
 <body>
-    <h4 style="background-color: rgb(0, 3, 38); color: #ffc400; margin: auto; text-align: center; padding: 1rem;">Arcade
-        Facilitator 24 - Leaderboard</h4>
-    <nav class="w-full  shadow-md relative ">
-        <div class="navbar">
-            <div class="nav-logo">
-                <div class="img w-16 h-1w-16 rounded-full ">
-                    <img alt="me" loading="lazy" width="45" height="25" decoding="async" data-nimg="1"
-                        style="color:transparent" style="padding: 2px; margin: 2px;" srcset="" src="logo.png">
-                </div>
-                <div class="text flex flex-col justify-start items-start">
-                    <p class="text-base " style="padding-inline: 5px; font-size: 1rem;">Google Developer Group
-                    </p>
-                    <p class="text-xs" style="font-size: 0.6rem; "> <!-- -->Dr.Babasaheb Ambedkar Technological
-                        University</p>
-                </div>
+    <header>
+        <h4>Arcade Facilitator 24 - Leaderboard</h4>
+    </header>
+
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="nav-brand">
+            <div class="brand-logo">
+                <img src="logo.png" alt="GDSC Logo" width="45" height="25" loading="lazy">
             </div>
-            <div class="nav-logo">
-                <div class="img">
-                    <a href="https://rsvp.withgoogle.com/events/arcade-facilitator/" target="_blank"><img alt="me"
-                            loading="lazy" width="45" height="35" decoding="async" data-nimg="1"
-                            style="color:transparent" style="padding: 2px; margin: 2px;" srcset="" src="arcade.png"></a>
-                </div>
-                <div class="img">
-                    <a href="https://www.linkedin.com/in/google-developer-students-club-dbatu-359325300/"
-                        target="_blank"><img alt="me" loading="lazy" width="35" height="35" decoding="async"
-                            data-nimg="1" style="color:transparent" style="padding: 2px; margin: 2px;" srcset=""
-                            src="link.png"></a>
-                </div>
-                <div class="img">
-                    <a href="https://www.instagram.com/gdsc_dbatu/" target="_blank"><img alt="me" loading="lazy"
-                            width="35" height="35" decoding="async" data-nimg="1" style="color:transparent"
-                            style="padding: 2px; margin: 2px;" srcset="" src="insta.png"></a>
-                </div>
+            <div class="brand-text">
+                <h2 class="brand-title">Google Developer Group</h2>
+                <p class="brand-subtitle">Dr. Babasaheb Ambedkar Technological University</p>
             </div>
+        </div>
+        <div class="nav-social">
+            <a href="https://rsvp.withgoogle.com/events/arcade-facilitator/" class="social-link" target="_blank" rel="noopener noreferrer" title="RSVP for the event">
+                <img src="arcadean.png" alt="Arcade Event" width="45" height="35" loading="lazy">
+            </a>
+            <a href="https://www.linkedin.com/in/google-developer-students-club-dbatu-359325300/" class="social-link" target="_blank" rel="noopener noreferrer" title="Follow us on LinkedIn">
+                <img src="link.png" alt="LinkedIn" width="35" height="35" loading="lazy">
+            </a>
+            <a href="https://www.instagram.com/gdsc_dbatu/" class="social-link" target="_blank" rel="noopener noreferrer" title="Follow us on Instagram">
+                <img src="insta.png" alt="Instagram" width="35" height="35" loading="lazy">
+            </a>
         </div>
     </nav>
-    <div class="container">
-        <div class="note"
-            style="text-align: center; margin-bottom: 4vh; color: rgba(5, 0, 56, 0.7); font-family:Arial, Helvetica, sans-serif ">
-        <p style="font-weight: bold;"> 🏆Cloud Superstars Assemble!</p>
-            <p> Our top skill badge earners are a force to be reckoned with. Join the ranks of the elite. ⚡</p>
-        </div>
-        <div class="search-container">
-            <input type="text" id="search-input" placeholder="Search...">
-            <button onclick="searchTable()">Search</button>
-        </div>
-        <div class="box">
 
-            <table id="data-table">
-                <thead>
-                    <tr id="table-header">
-                        <th>Sr. No.</th>
-                        <!-- Table headers will be populated by JavaScript -->
-                    </tr>
-                </thead>
-                <tbody id="table-body">
-                    <!-- Table body will be populated by JavaScript -->
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <div class="cp"
-        style="background-color: rgb(0, 3, 38); color: #ffffff; margin: auto; text-align: center; padding: 1rem; bottom: 0;">
-       https://dbatu-gdsc.github.io/Leaderboard © 2024
-        Copyright:DBATU-GDSC</div>
+    <main class="container" role="main">
+        <section class="note" aria-label="Announcement">
+            <p><i class="fas fa-trophy" aria-hidden="true"></i> Cloud Superstars Assemble!</p>
+            <p>Our top skill badge earners are a force to be reckoned with. Join the ranks of the elite. <i class="fas fa-bolt" aria-hidden="true"></i></p>
+        </section>
 
+        <section class="registration-section" aria-label="Registration section">
+            <div class="registration-content">
+                <h2><i class="fas fa-user-plus" aria-hidden="true"></i> Register for Arcade Facilitator Program</h2>
+                <div class="instructions">
+                    <h3>How to Register:</h3>
+                    <ol>
+                        <li>Click the "Register Now" button below</li>
+                        <li>Fill out the registration form with your details</li>
+                        <li>Enter your referral code: 
+                            <span class="referral-code">
+                                <span id="referral-code-text">GCAF25C1-IN-CM5-JP6</span>
+                                <button class="copy-button" onclick="copyReferralCode()" aria-label="Copy referral code">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </span>
+                        </li>
+                        <li>Submit the form and wait for confirmation</li>
+                    </ol>
+                </div>
+                <div class="registration-actions">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScP3yQ48vthMKkxSgNr03FDbS2RcczuxXEQggoyBoXseePOJg/viewform" class="register-button" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-arrow-right" aria-hidden="true"></i> Register Now
+                    </a>
+                    <p class="registration-note">Limited spots available. Register early to secure your place!</p>
+                </div>
+            </div>
+        </section>
 
-    <div id="tooltip" class="tooltip hidden"></div>
+        <section class="search-container" aria-label="Search section">
+            <input type="text" id="search-input" placeholder="Search participants..." aria-label="Search participants">
+            <button onclick="searchTable()" aria-label="Search">
+                <i class="fas fa-search" aria-hidden="true"></i> Search
+            </button>
+        </section>
+
+        <section class="box" role="region" aria-label="Leaderboard table">
+            <div class="table-wrapper">
+                <table id="data-table" role="grid">
+                    <thead>
+                        <tr id="table-header">
+                            <th scope="col">Sr. No.</th>
+                            <!-- Table headers will be populated by JavaScript -->
+                        </tr>
+                    </thead>
+                    <tbody id="table-body">
+                        <!-- Table body will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer class="cp" role="contentinfo">
+        <p>© 2025 Copyright: DBATU-GDG</p>
+    </footer>
+
+    <div id="tooltip" class="tooltip hidden" role="tooltip"></div>
     <script src="script.js"></script>
-
 </body>
 
 </html>
